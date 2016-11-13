@@ -1,7 +1,11 @@
 /**
- * Created by carlos on 11/13/16.
+ * Created by chad on 11/13/16.
  */
 public class SlidePuzzleModel {
+
+
+
+
     private static final int ROWS = 3;
     private static final int COLS = 3;
 

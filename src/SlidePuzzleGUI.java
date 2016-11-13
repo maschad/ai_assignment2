@@ -5,8 +5,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+
 /**
- * Created by carlos on 11/13/16.
+ * Created by chad on 11/13/16.
  */
 public class SlidePuzzleGUI extends JPanel{
     //=============================================== instance variables

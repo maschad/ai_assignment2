@@ -1,7 +1,7 @@
 import javax.swing.*;
 
 /**
- * Created by carlos on 11/13/16.
+ * Created by chad on 11/13/16.
  */
 public class SlidePuzzle {
     //============================================= method main
