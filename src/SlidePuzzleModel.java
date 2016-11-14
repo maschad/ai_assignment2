@@ -1,6 +1,13 @@
 /**
  * Created by chad on 11/13/16.
  */
+
+import java.util.Map;
+
+import org.jpl7.JPL;
+import org.jpl7.Query;
+import org.jpl7.Term;
+
 public class SlidePuzzleModel {
 
 
@@ -103,6 +110,43 @@ public class SlidePuzzleModel {
         //--- Falling thru loop means nothing out of place.
         return true;
     }//end isGameOver
+
+    public void findSolution(){
+        Query.hasSolution("use_module(library(jpl))"); // only because we call e.g. jpl_pl_syntax/1 below
+        String t1 = "consult('puzzle.pl')";
+        String state ="[";
+        for (int r=0; r<ROWS; r++) {
+            for (int c=0; c<COLS; c++) {
+                state.concat(getFace(r, c)) + "/";
+            }
+        }
+        state.concat("]");
+        String q = "find_solution(" + state +",Moves)";
+        String moves = Query.oneSolution(q).get("Moves");
+        if(moves[1]).equals("right")){
+            moveRight(getRow(_emptyTile),getCol(_emptyTile));
+        }
+        else if(moves[1].equals("left")){
+            moveLeft(getRow(_emptyTile),getCol(_emptyTile));
+        }
+        else if(move[1].equals("up")){
+            moveUp(getRow(_emptyTile),getCol(_emptyTile));
+        }
+        else if(move[1].equals("down")){
+            moveDown(getRow(_emptyTile),getCol(_emptyTile));
+        }
+
+    }
+
+    public moveRight(int r, int c){
+        exchangeTiles(r,c,1,0);
+    }//move a tile right
+
+    public moveLeft(int r, int c){}
+    public moveDown(int r, int c){}
+    public moveUp(int r, int c){}
+
+
 }//end class SlidePuzzleModel
 
 
@@ -141,4 +185,12 @@ class Tile {
     public boolean isInFinalPosition(int r, int c) {
         return r==_row && c==_col;
     }//end isInFinalPosition
+ 
+    public int getRow(Tile t){
+        return t._row;
+    }//get row of a tile
+
+    public int getCol(Tile t){
+        return t.col;
+    }//get column of a tile
 }

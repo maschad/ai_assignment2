@@ -20,12 +20,14 @@ public class SlidePuzzleGUI extends JPanel{
     public SlidePuzzleGUI() {
         //--- Create a button.  Add a listener to it.
         JButton newGameButton = new JButton("New Game");
+        JButton findSol = new JButton("Find Solution");
         newGameButton.addActionListener(new NewGameAction());
 
         //--- Create control panel
         JPanel controlPanel = new JPanel();
         controlPanel.setLayout(new FlowLayout());
         controlPanel.add(newGameButton);
+        controlPanel.add(findSol);
 
         //--- Create graphics panel
         _puzzleGraphics = new GraphicsPanel();
